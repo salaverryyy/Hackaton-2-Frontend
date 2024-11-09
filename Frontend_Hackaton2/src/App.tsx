@@ -1,3 +1,8 @@
+
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';  
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProductList from './pages/ProductList';
@@ -11,18 +16,19 @@ function App() {
     setItems((prevItems) => [...prevItems, item]);
   };
 
+
+const App: React.FC = () => {
   return (
-    <Router>
+
+    <div className="App">
       <Routes>
-        <Route path="/" element={<ProductList />} />
-        <Route path="/add-item" element={<AddItem onAddItem={handleAddItem} />} />
-        <Route path="/product/:id" element={<ItemDetail />} />
+        <Route path="/" element={<RegisterPage />} /> {/* Ruta principal */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/dashboard" element={<h2>Dashboard</h2>} /> {/* Componente temporal para el Dashboard */}
       </Routes>
-    </Router>
+    </div>
   );
-}
+};
 
 export default App;
-
-
 
