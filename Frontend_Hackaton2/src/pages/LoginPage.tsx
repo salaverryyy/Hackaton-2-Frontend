@@ -20,7 +20,7 @@ const LoginPage: React.FC = () => {
     try {
       const response = await loginUser(formData) as LoginResponse;
       localStorage.setItem('token', response.token);
-      navigate('/dashboard');
+      navigate('/detalles');
     } catch (error) {
       console.error('Login failed:', error);
       alert('Error de inicio de sesión');

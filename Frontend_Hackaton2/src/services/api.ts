@@ -1,6 +1,6 @@
 import axios from 'axios';
 import apiClient from '../apiConfig';
-
+import { Product, UserCartResponse } from '../@types/types';
 const API_URL = 'https://nn1h052dp5.execute-api.us-east-2.amazonaws.com/v1';
 
 // Función para registrar un usuario
@@ -38,9 +38,9 @@ export const addToCart = async (itemId: string, userId: string) => {
 };
   
  // Función para obtener el carrito de un usuario
-export const getUserCart = async (userId: string) => {
+ export const getUserCart = async (userId: string): Promise<Product[]> => {
   try {
-    const response = await apiClient.get(`/cart/${userId}`);
+    const response = await apiClient.get<UserCartResponse>(`/cart/${userId}`);
     return response.data.products;
   } catch (error) {
     console.error('Error al obtener el carrito del usuario:', error);

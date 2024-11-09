@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';  
+import ProductDetails from './pages/ProductDetails';
 
 const App: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<RegisterPage />} /> {/* Ruta principal */}
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/dashboard" element={<h2>Dashboard</h2>} /> {/* Componente temporal para el Dashboard */}
+        <Route path="/detalles" element={<ProductDetails/>} />{/* Componente temporal para el Dashboard */}
       </Routes>
     </div>
   );
